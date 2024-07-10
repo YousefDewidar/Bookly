@@ -11,10 +11,11 @@ class BookListView extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.3,
       child: ListView.builder(
+        clipBehavior: Clip.none,
         padding: const EdgeInsets.only(top: 20),
         itemCount: 20,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => const BookCard(),
+        itemBuilder: (context, index) => const BookCard(width: 150,),
       ),
     );
   }

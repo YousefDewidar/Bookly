@@ -1,6 +1,6 @@
 import 'package:bookly/constant.dart';
 import 'package:bookly/core/utils/assets_data.dart';
-import 'package:bookly/core/utils/sized_func.dart';
+import 'package:bookly/core/utils/space.dart';
 import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:bookly/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +39,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Image.asset(AssetsData.logo),
-          space(4),
+          const Space(4),
           SlidingText(
               animationController: animationController,
               slidingAnimation: slidingAnimation)
@@ -61,7 +61,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
       const Duration(seconds: 2),
       () {
         Get.to(() => const HomeView(),
-            transition: Transition.fade, duration: kTransitionDuration);
+            transition: Transition.fadeIn, duration: kTransitionDuration
+            );
       },
     );
   }
