@@ -1,7 +1,7 @@
 import 'package:bookly/core/utils/space.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/details/presentation/views/details_view.dart';
-import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
+import 'package:bookly/features/details/presentation/views/widgets/image_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -13,18 +13,15 @@ class BestSellerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => const DetailsView(),
-        transition: Transition.rightToLeft
-        );
+        Get.to(() => const DetailsView(), transition: Transition.rightToLeft);
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 25.0),
         child: SizedBox(
-          width: MediaQuery.of(context).size.width,
           height: 130,
           child: Row(
             children: [
-              const BookCard(width: 80),
+              const ImageContainer(width: 85,),
               const Space(20, dir: 'h'),
               Expanded(
                 child: Padding(
