@@ -15,7 +15,7 @@ class BookListView extends StatelessWidget {
         padding: const EdgeInsets.only(top: 20),
         itemCount: 20,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => const BookCard(width: 150,),
+        itemBuilder: (context, index) => const BookCard(width: 150),
       ),
     );
   }
