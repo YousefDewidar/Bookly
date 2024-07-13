@@ -33,11 +33,11 @@ class DetailsViewBody extends StatelessWidget {
           const RatingWidget(),
           const Space(35),
           const FreeOrPaidButtons(),
-          const Spacer(),
+          const Expanded(child: Space(50)),
           const Text('You can also like', style: Styles.style18),
           const Space(12),
           const AlsoLikeListView(),
-          const Space(20),
+          const Expanded(child: Space(20)),
         ],
       ),
     );
