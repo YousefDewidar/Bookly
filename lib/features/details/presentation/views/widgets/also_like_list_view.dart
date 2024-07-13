@@ -16,8 +16,11 @@ class AlsoLikeListView extends StatelessWidget {
         itemCount: 8,
         itemBuilder: (context, index) {
           return const Padding(
-            padding: EdgeInsets.only(right: 6),
-            child: BookCard(width: 100,marginRight: 4,));
+              padding: EdgeInsets.only(right: 6),
+              child: BookCard(
+                width: 100,
+                marginRight: 4,
+              ));
         },
       ),
     );

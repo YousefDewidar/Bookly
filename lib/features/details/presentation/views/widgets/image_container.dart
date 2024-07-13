@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 class ImageContainer extends StatelessWidget {
   const ImageContainer({
-    super.key,this.width, required this.height,
+    super.key,
+    this.width,
+    required this.height,
   });
   final double? width;
   final double height;

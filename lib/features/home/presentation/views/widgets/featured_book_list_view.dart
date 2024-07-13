@@ -1,8 +1,8 @@
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 
-class BookListView extends StatelessWidget {
-  const BookListView({
+class FeaturedBookListView extends StatelessWidget {
+  const FeaturedBookListView({
     super.key,
   });
 

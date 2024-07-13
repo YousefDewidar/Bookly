@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget {
         Image.asset(AssetsData.logo, height: 22),
         IconButton(
             onPressed: () {
-              Get.to(() => const SearchView(),transition: Transition.fade);
+              Get.to(() => const SearchView(), transition: Transition.fade);
             },
             icon: const Icon(FontAwesomeIcons.magnifyingGlass))
       ],
