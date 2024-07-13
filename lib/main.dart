@@ -25,6 +25,7 @@ class Bookly extends StatelessWidget {
           create: (context) =>
               FeaturedBooksCubit(HomeRepoImplement(ApiService(Dio())))
                 ..fetchFeaturedBooks(),
+          // call fun when create cubit
         ),
         BlocProvider(
           create: (context) =>
