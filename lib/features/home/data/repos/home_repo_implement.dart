@@ -5,7 +5,9 @@ import 'package:bookly/features/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 
 class HomeRepoImplement implements HomeRepo {
-  final ApiService apiService = ApiService();
+  final ApiService apiService;
+
+  HomeRepoImplement(this.apiService);
 
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
@@ -25,8 +27,18 @@ class HomeRepoImplement implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() {
-    final data = apiService.get(endPoint: '');
-    throw '';
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+    try {
+      var data = await apiService.get(
+          endPoint: 'v1/volumes?Filtering=free-ebooks&q=subject:programming');
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+
+      return right(books);
+    } catch (e) {
+      return left(ServerFailure());
+    }
   }
 }
