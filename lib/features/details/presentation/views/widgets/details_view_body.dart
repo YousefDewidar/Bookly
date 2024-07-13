@@ -12,29 +12,32 @@ class DetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 24.0, right: 24.0, top: 20),
+    return Padding(
+      padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          DetailsAppBar(),
-          Space(10),
-          ImageContainer(),
-          Space(8),
-          Text('The Jungle Book',
+          const DetailsAppBar(),
+          const Space(10),
+          ImageContainer(
+            height: MediaQuery.of(context).size.height * 0.37,
+          ),
+          const Space(8),
+          const Text('The Jungle Book',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600)),
-          Space(3),
-          Text('The Jungle Book',
+          const Space(3),
+          const Text('The Jungle Book',
               textAlign: TextAlign.center, style: Styles.greyStyle),
-          Space(3),
-          RatingWidget(),
-          Space(35),
-          FreeOrPaidButtons(),
-          Space(35),
-          Text('You can also like', style: Styles.style18),
-          Space(8),
-          AlsoLikeListView(),
+          const Space(3),
+          const RatingWidget(),
+          const Space(35),
+          const FreeOrPaidButtons(),
+          const Spacer(),
+          const Text('You can also like', style: Styles.style18),
+          const Space(12),
+          const AlsoLikeListView(),
+          const Space(20),
         ],
       ),
     );

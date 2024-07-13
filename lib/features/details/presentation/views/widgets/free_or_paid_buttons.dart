@@ -14,7 +14,7 @@ class FreeOrPaidButtons extends StatelessWidget {
         GestureDetector(
           onTap: () {},
           child: Container(
-            width: MediaQuery.of(context).size.width / 2 - 40,
+            width: MediaQuery.of(context).size.width / 2 - 38,
             height: 50,
             decoration: const BoxDecoration(
               color: Colors.white,
@@ -34,7 +34,7 @@ class FreeOrPaidButtons extends StatelessWidget {
         GestureDetector(
           onTap: () {},
           child: Container(
-            width: MediaQuery.of(context).size.width / 2 - 40,
+            width: MediaQuery.of(context).size.width / 2 - 38,
             height: 50,
             decoration: const BoxDecoration(
               color: Color(0xffEF8262),

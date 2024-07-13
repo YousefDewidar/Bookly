@@ -9,7 +9,7 @@ class AlsoLikeListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * .15,
+      height: MediaQuery.of(context).size.height * .2,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         clipBehavior: Clip.none,
@@ -17,7 +17,7 @@ class AlsoLikeListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.only(right: 8),
-            child: BookCard(width: 80,marginRight: 4,));
+            child: BookCard(width: 100,marginRight: 4,));
         },
       ),
     );

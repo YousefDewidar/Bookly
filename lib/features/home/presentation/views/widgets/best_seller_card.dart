@@ -2,6 +2,7 @@ import 'package:bookly/core/utils/space.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/details/presentation/views/details_view.dart';
 import 'package:bookly/features/details/presentation/views/widgets/image_container.dart';
+import 'package:bookly/features/details/presentation/views/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -21,7 +22,10 @@ class BestSellerCard extends StatelessWidget {
           height: 130,
           child: Row(
             children: [
-              const ImageContainer(width: 85,),
+              ImageContainer(
+                height: MediaQuery.of(context).size.height * 0.35,
+                width: 85,
+              ),
               const Space(20, dir: 'h'),
               Expanded(
                 child: Padding(
@@ -39,25 +43,11 @@ class BestSellerCard extends StatelessWidget {
                       ),
                       const Text('J.K. Rowling', style: Styles.greyStyle),
                       const Space(8),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text('19.99 \$', style: Styles.style22),
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.star_rate_rounded,
-                                color: Colors.amber,
-                              ),
-                              const Space(dir: 'h', 4),
-                              Text('4.8',
-                                  style: Styles.style22.copyWith(
-                                      fontWeight: FontWeight.w500,
-                                      height: 1.2)),
-                              const Space(dir: 'h', 4),
-                              const Text('(2390)', style: Styles.greyStyle),
-                            ],
-                          ),
+                          Text('19.99 \$', style: Styles.style22),
+                          RatingWidget(),
                         ],
                       ),
                     ],
