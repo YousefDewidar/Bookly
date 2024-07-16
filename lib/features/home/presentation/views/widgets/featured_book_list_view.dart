@@ -22,6 +22,7 @@ class FeaturedBookListView extends StatelessWidget {
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => BookCard(
+                marginR: 14.0,
                 width: 150,
                 book:state.books[index],
               ),

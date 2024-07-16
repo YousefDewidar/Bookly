@@ -1,7 +1,6 @@
 import 'package:bookly/core/utils/space.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/details/presentation/views/details_view.dart';
-import 'package:bookly/features/details/presentation/views/widgets/image_container.dart';
 import 'package:bookly/features/details/presentation/views/widgets/rating_widget.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
@@ -18,7 +17,11 @@ class NewestBookCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => const DetailsView(), transition: Transition.rightToLeft);
+        Get.to(
+            () => DetailsView(
+                  myBook: book,
+                ),
+            transition: Transition.rightToLeft);
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 25.0),

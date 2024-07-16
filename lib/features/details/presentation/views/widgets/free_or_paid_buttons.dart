@@ -25,7 +25,7 @@ class FreeOrPaidButtons extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                '19.99 \$',
+                'Free',
                 style: Styles.style22
                     .copyWith(color: Colors.black, fontWeight: FontWeight.w900),
               ),
