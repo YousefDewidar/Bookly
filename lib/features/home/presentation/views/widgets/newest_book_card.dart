@@ -3,12 +3,16 @@ import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/details/presentation/views/details_view.dart';
 import 'package:bookly/features/details/presentation/views/widgets/image_container.dart';
 import 'package:bookly/features/details/presentation/views/widgets/rating_widget.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class BestSellerCard extends StatelessWidget {
-  const BestSellerCard({super.key});
+class NewestBookCard extends StatelessWidget {
+  const NewestBookCard({super.key, required this.book});
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +26,7 @@ class BestSellerCard extends StatelessWidget {
           height: 130,
           child: Row(
             children: [
-              ImageContainer(
-                height: MediaQuery.of(context).size.height * 0.35,
-                width: 85,
-              ),
+              BookCard(book: book, width: 90),
               const Space(20, dir: 'h'),
               Expanded(
                 child: Padding(
@@ -35,19 +36,24 @@ class BestSellerCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
-                        'Harry Potter\nand the Goblet of Fire',
-                        style: Styles.style22
-                            .copyWith(fontWeight: FontWeight.w500, height: 1.2),
+                        book.volumeInfo!.title!,
+                        style: GoogleFonts.afacad(
+                            fontSize: 22,
+                            height: 1.2,
+                            fontWeight: FontWeight.w500),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      const Text('J.K. Rowling', style: Styles.greyStyle),
+                      Text(book.volumeInfo!.authors![0],
+                          style: Styles.greyStyle),
                       const Space(8),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('19.99 \$', style: Styles.style22),
-                          RatingWidget(),
+                          const Text('Free', style: Styles.style22),
+                          RatingWidget(
+                            book: book,
+                          ),
                         ],
                       ),
                     ],

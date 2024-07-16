@@ -19,9 +19,10 @@ class DetailsViewBody extends StatelessWidget {
         children: [
           const DetailsAppBar(),
           const Space(10),
-          ImageContainer(
-            height: MediaQuery.of(context).size.height * 0.37,
-          ),
+          // ImageContainer(
+
+          //   height: MediaQuery.of(context).size.height * 0.37,
+          // ),
           const Space(8),
           const Text('The Jungle Book',
               textAlign: TextAlign.center,
@@ -30,7 +31,7 @@ class DetailsViewBody extends StatelessWidget {
           const Text('The Jungle Book',
               textAlign: TextAlign.center, style: Styles.greyStyle),
           const Space(3),
-          const RatingWidget(),
+          // const RatingWidget(),
           const Space(35),
           const FreeOrPaidButtons(),
           const Expanded(child: Space(50)),

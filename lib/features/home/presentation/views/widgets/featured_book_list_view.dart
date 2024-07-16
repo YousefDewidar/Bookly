@@ -22,7 +22,8 @@ class FeaturedBookListView extends StatelessWidget {
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => BookCard(
-                imgUrl: state.books[index].volumeInfo!.imageLinks!.thumbnail!,
+                width: 150,
+                book:state.books[index],
               ),
             ),
           );
