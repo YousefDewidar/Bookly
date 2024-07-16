@@ -19,11 +19,10 @@ class FeaturedBookListView extends StatelessWidget {
             child: ListView.builder(
               clipBehavior: Clip.none,
               padding: const EdgeInsets.only(top: 20),
-              itemCount: 20,
+              itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => BookCard(
                 imgUrl: state.books[index].volumeInfo!.imageLinks!.thumbnail!,
-                width: 150,
               ),
             ),
           );
