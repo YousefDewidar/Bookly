@@ -2,7 +2,8 @@ import 'package:bookly/core/utils/space.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/details/presentation/views/widgets/also_like_list_view.dart';
 import 'package:bookly/features/details/presentation/views/widgets/details_app_bar.dart';
-import 'package:bookly/features/details/presentation/views/widgets/free_or_paid_buttons.dart';
+import 'package:bookly/features/details/presentation/views/widgets/preview_or_download_buttons.dart';
+import 'package:bookly/features/details/presentation/views/widgets/rating_widget.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +24,8 @@ class DetailsViewBody extends StatelessWidget {
           const Space(10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 60.0),
-            child: Hero(tag: myBook.id!,
-              child: BookCard(book: myBook, width: 0)),
+            child:
+                Hero(tag: myBook.id!, child: BookCard(book: myBook, width: 0)),
           ),
           const Space(10),
           Text(
@@ -32,16 +33,16 @@ class DetailsViewBody extends StatelessWidget {
             textAlign: TextAlign.center,
             style: GoogleFonts.afacad(
                 fontSize: 30, height: 1, fontWeight: FontWeight.w500),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
           const Space(3),
           Text(myBook.volumeInfo!.authors![0],
               textAlign: TextAlign.center, style: Styles.greyStyle),
           const Space(3),
-          // const RatingWidget(),
-          const Space(35),
-          const FreeOrPaidButtons(),
+          RatingWidget(book: myBook),
+          const Space(25),
+          PreviewOrDownloadButtons(book: myBook),
           const Expanded(child: Space(50)),
           const Text('You can also like', style: Styles.style18),
           const Space(12),

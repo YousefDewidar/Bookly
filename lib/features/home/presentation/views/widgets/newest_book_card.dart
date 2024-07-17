@@ -18,10 +18,10 @@ class NewestBookCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.to(
-            () => DetailsView(
-                  myBook: book,
-                ),
-            transition: Transition.rightToLeft);
+          () => DetailsView(
+            myBook: book,
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 25.0),

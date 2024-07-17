@@ -1,8 +1,11 @@
 import 'package:bookly/core/utils/custom_loading_ind.dart';
+import 'package:bookly/features/details/presentation/views/details_view.dart';
 import 'package:bookly/features/home/presentation/view%20model/featured%20book%20cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 class FeaturedBookListView extends StatelessWidget {
   const FeaturedBookListView({
@@ -21,10 +24,15 @@ class FeaturedBookListView extends StatelessWidget {
               padding: const EdgeInsets.only(top: 20),
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => BookCard(
-                marginR: 14.0,
-                width: 150,
-                book:state.books[index],
+              itemBuilder: (context, index) => GestureDetector(
+                onTap: () {
+                  Get.to(() => DetailsView(myBook: state.books[index]));
+                },
+                child: BookCard(
+                  marginR: 14.0,
+                  width: 150,
+                  book: state.books[index],
+                ),
               ),
             ),
           );
