@@ -11,9 +11,10 @@ Future<void> lanchUrlFun({required BookModel book, required context}) async {
     AwesomeDialog(
             context: context,
             dialogType: DialogType.error,
-            animType: AnimType.scale,
+            animType: AnimType.bottomSlide,
             title: 'Not available',
-            btnOkOnPress: () {},
+            autoDismiss: true,
+            autoHide: const Duration(seconds: 3)
             ).show();
   }
 }
