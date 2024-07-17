@@ -15,12 +15,13 @@ class BookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height *.34,
       width: width,
       margin: EdgeInsets.only(right: marginR),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: CachedNetworkImage(
-          imageUrl: book.volumeInfo!.imageLinks!.thumbnail.toString(),
+          imageUrl: book.volumeInfo?.imageLinks?.thumbnail.toString() ?? '',
           fit: BoxFit.fill,
           errorWidget: (context, url, error) => const Icon(Icons.error),
           placeholder: (context, url) =>
