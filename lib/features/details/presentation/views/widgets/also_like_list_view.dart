@@ -39,7 +39,7 @@ class _AlsoLikeListViewState extends State<AlsoLikeListView> {
               itemCount: state.books.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(right: 6),
+                  padding: const EdgeInsets.only(right: 12.0),
                   child: InkWell(
                     onTap: () {
                       Navigator.pushReplacement(
@@ -52,7 +52,6 @@ class _AlsoLikeListViewState extends State<AlsoLikeListView> {
                     child: Hero(
                       tag: state.books[index].id!,
                       child: BookCard(
-                        marginR: 12.0,
                         width: 120,
                         book: state.books[index],
                       ),
