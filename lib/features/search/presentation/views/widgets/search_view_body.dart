@@ -1,10 +1,9 @@
 import 'package:bookly/core/utils/space.dart';
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/search/presentation/views/widgets/search_bar.dart';
 import 'package:bookly/features/search/presentation/views/widgets/search_result_list_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'search_text_field.dart';
+
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -15,8 +14,8 @@ class SearchViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 5.0, right: 30.0, top: 20),
-          child: SearchBar(),
+          padding: EdgeInsets.only(left: 10.0, right: 30.0, top: 20),
+          child: CustomSearchBar(),
         ),
         Space(18),
         Padding(
@@ -34,22 +33,3 @@ class SearchViewBody extends StatelessWidget {
   }
 }
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        IconButton(
-            onPressed: () {
-              Get.close(1);
-            },
-            icon: const Icon(Icons.arrow_back_ios)),
-        const Expanded(child: SearchTextField()),
-      ],
-    );
-  }
-}
