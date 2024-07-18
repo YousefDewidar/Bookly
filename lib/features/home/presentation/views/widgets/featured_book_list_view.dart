@@ -28,10 +28,13 @@ class FeaturedBookListView extends StatelessWidget {
                 onTap: () {
                   Get.to(() => DetailsView(myBook: state.books[index]));
                 },
-                child: BookCard(
-                  marginR: 14.0,
-                  width: 150,
-                  book: state.books[index],
+                child: Hero(
+                  tag: state.books[index].id!,
+                  child: BookCard(
+                    marginR: 14.0,
+                    width: 150,
+                    book: state.books[index],
+                  ),
                 ),
               ),
             ),

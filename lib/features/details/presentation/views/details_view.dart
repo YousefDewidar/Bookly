@@ -14,9 +14,9 @@ class DetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: BlocProvider(
+    return Scaffold(
+      body: SafeArea(
+        child: BlocProvider(
           create: (context) =>
               SimilarBooksCubit(HomeRepoImplement(ApiService(Dio()))),
           child: DetailsViewBody(myBook: myBook),

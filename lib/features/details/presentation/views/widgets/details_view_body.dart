@@ -16,7 +16,7 @@ class DetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 20),
+      padding: const EdgeInsets.only(left: 30.0, right: 30.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

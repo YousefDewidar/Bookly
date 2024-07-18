@@ -14,7 +14,7 @@ class SearchViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 10.0, right: 30.0, top: 20),
+          padding: EdgeInsets.only(left: 10.0, right: 30.0, top: 15),
           child: CustomSearchBar(),
         ),
         Space(18),
