@@ -13,7 +13,7 @@ class BookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * .3,
+      height: MediaQuery.of(context).size.height * .34,
       width: width,
       margin: EdgeInsets.only(right: marginR),
       child: ClipRRect(

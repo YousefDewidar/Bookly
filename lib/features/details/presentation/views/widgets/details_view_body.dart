@@ -27,7 +27,7 @@ class DetailsViewBody extends StatelessWidget {
             child:
                 Hero(tag: myBook.id!, child: BookCard(book: myBook, width: 0)),
           ),
-          const Space(10),
+          const Space(20),
           Text(
             myBook.volumeInfo!.title!,
             textAlign: TextAlign.center,
