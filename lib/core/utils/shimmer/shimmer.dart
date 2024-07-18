@@ -5,9 +5,8 @@ import 'package:shimmer/shimmer.dart';
 
 class ShimmerFeatureList extends StatelessWidget {
   const ShimmerFeatureList({
-    super.key, required this.width,
+    super.key,
   });
-  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +22,33 @@ class ShimmerFeatureList extends StatelessWidget {
               itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.only(right: 14.0),
                     child: ShimmerCard(
-                        width: width,
+                        width: 150,
                         height: MediaQuery.of(context).size.height * .3),
+                  )),
+        ));
+  }
+}
+
+class ShimmerAlsoList extends StatelessWidget {
+  const ShimmerAlsoList({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: MediaQuery.of(context).size.height * .18,
+        child: Shimmer.fromColors(
+          baseColor: const Color.fromARGB(236, 217, 217, 217),
+          highlightColor: Colors.white,
+          child: ListView.builder(
+              itemCount: 5,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.only(right: 12.0),
+                    child: ShimmerCard(
+                        width: 120,
+                        height: MediaQuery.of(context).size.height * .18),
                   )),
         ));
   }
@@ -70,8 +94,8 @@ class NewestCardShimmer extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ShimmerCard(
                       width: 300,
@@ -82,7 +106,7 @@ class NewestCardShimmer extends StatelessWidget {
                       width: 100,
                       height: 10,
                     ),
-                    Space(8),
+                    Space(15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

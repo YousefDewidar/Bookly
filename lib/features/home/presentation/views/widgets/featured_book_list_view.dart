@@ -37,9 +37,9 @@ class FeaturedBookListView extends StatelessWidget {
             ),
           );
         } else if (state is FeaturedBooksFailure) {
-          return Text(state.errMessage);
+          return Center(child: Text(state.errMessage));
         } else {
-          return const ShimmerFeatureList(width: 150);
+          return const ShimmerFeatureList();
         }
       },
     );

@@ -65,7 +65,7 @@ class _AlsoLikeListViewState extends State<AlsoLikeListView> {
               child: Icon(Icons.error),
             );
           } else {
-            return const ShimmerFeatureList(width: 120,);
+            return const ShimmerAlsoList();
           }
         },
       ),

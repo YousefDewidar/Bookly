@@ -16,7 +16,7 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
 
     result.fold(
       (failuer) {
-        emit(const FeaturedBooksFailure('error'));
+        emit(const FeaturedBooksFailure('No internet connection'));
       },
       (books) {
         emit(FeaturedBooksSuccess(books));

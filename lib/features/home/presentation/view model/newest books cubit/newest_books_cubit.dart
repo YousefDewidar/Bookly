@@ -16,7 +16,7 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
 
     result.fold(
       (failuer) {
-        emit(const NewestBooksFailure('error'));
+        emit(const NewestBooksFailure('No internet connection'));
       },
       (books) {
         emit(NewestBooksSuccess(books));

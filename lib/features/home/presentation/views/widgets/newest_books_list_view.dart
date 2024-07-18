@@ -23,7 +23,7 @@ class NewestBooksListView extends StatelessWidget {
         } else if (state is NewestBooksLoading) {
           return const Center(child: ShimmerNewestList());
         } else if (state is NewestBooksFailure) {
-          return Text(state.errMessage);
+          return Center(child: Text(state.errMessage));
         } else {
           return const SizedBox();
         }
