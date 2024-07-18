@@ -1,4 +1,4 @@
-import 'package:bookly/core/utils/custom_loading_ind.dart';
+import 'package:bookly/core/utils/shimmer/shimmer.dart';
 import 'package:bookly/features/details/presentation/view_model/similar%20books%20cubit/similar_books_cubit.dart';
 import 'package:bookly/features/details/presentation/views/details_view.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
@@ -65,7 +65,7 @@ class _AlsoLikeListViewState extends State<AlsoLikeListView> {
               child: Icon(Icons.error),
             );
           } else {
-            return const CustomLoadingIndicator();
+            return const ShimmerFeatureList(width: 120,);
           }
         },
       ),

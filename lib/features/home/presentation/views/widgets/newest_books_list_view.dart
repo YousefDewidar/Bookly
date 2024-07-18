@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/shimmer/shimmer.dart';
 import 'package:bookly/features/home/presentation/view%20model/newest%20books%20cubit/newest_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/newest_book_card.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class NewestBooksListView extends StatelessWidget {
             ),
           );
         } else if (state is NewestBooksLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: ShimmerNewestList());
         } else if (state is NewestBooksFailure) {
           return Text(state.errMessage);
         } else {

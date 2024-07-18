@@ -1,4 +1,4 @@
-import 'package:bookly/core/utils/custom_loading_ind.dart';
+import 'package:bookly/core/utils/shimmer/shimmer.dart';
 import 'package:bookly/features/details/presentation/views/details_view.dart';
 import 'package:bookly/features/home/presentation/view%20model/featured%20book%20cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
@@ -39,7 +39,7 @@ class FeaturedBookListView extends StatelessWidget {
         } else if (state is FeaturedBooksFailure) {
           return Text(state.errMessage);
         } else {
-          return const CustomLoadingIndicator();
+          return const ShimmerFeatureList(width: 150);
         }
       },
     );
