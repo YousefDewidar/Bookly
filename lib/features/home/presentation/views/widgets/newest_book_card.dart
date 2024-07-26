@@ -47,8 +47,11 @@ class NewestBookCard extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      Text(book.volumeInfo!.authors?[0] ?? '',
-                          style: Styles.greyStyle),
+                      Text(
+                        book.volumeInfo!.authors?[0] ?? '',
+                        style: Styles.greyStyle,
+                        maxLines: 1,
+                      ),
                       const Space(8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
