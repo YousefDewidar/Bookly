@@ -5,6 +5,7 @@ import 'package:bookly/features/home/data/data_source/home_local_data_source.dar
 import 'package:bookly/features/home/data/data_source/home_remote_data_source.dart';
 import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:bookly/features/home/domain/repos/home_repo.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImplement implements HomeRepo {
   HomeRemoteDataSource remoteDataSource;
@@ -17,29 +18,41 @@ class HomeRepoImplement implements HomeRepo {
   @override
   Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks() async {
     try {
-      List<BookEntity> localBooks = localDataSource.fetchFeaturedBooks();
-      List<BookEntity> remoteBooks =
-          await remoteDataSource.fetchFeaturedBooks();
-      if (localBooks.isNotEmpty) {
-        return right(localBooks);
+      List<BookEntity> books;
+      books = localDataSource.fetchFeaturedBooks();
+      if (books.isNotEmpty) {
+        return right(books);
       }
-      return right(remoteBooks);
+      books = await remoteDataSource.fetchFeaturedBooks();
+      return right(books);
     } catch (e) {
-      return left(Failure());
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(
+        ServerFailure(errMessage: 'There is a error,please try again'),
+      );
     }
   }
 
   @override
   Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async {
     try {
-      List<BookEntity> localBooks = localDataSource.fetchNewestBooks();
-      List<BookEntity> remoteBooks = await remoteDataSource.fetchNewestBooks();
-      if (localBooks.isNotEmpty) {
-        return right(localBooks);
+      List<BookEntity> books;
+
+      books = localDataSource.fetchNewestBooks();
+      if (books.isNotEmpty) {
+        return right(books);
       }
-      return right(remoteBooks);
+      books = await remoteDataSource.fetchNewestBooks();
+      return right(books);
     } catch (e) {
-      return left(Failure());
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(
+        ServerFailure(errMessage: 'There is a error,please try again'),
+      );
     }
   }
 
@@ -51,7 +64,12 @@ class HomeRepoImplement implements HomeRepo {
           await remoteDataSource.fetchSimilarBooks(cat: cat);
       return right(remoteBooks);
     } catch (e) {
-      return left(Failure());
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(
+        ServerFailure(errMessage: 'There is a error,please try again'),
+      );
     }
   }
 }
