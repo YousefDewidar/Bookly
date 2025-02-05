@@ -22,7 +22,7 @@ class SearchRepoImp implements SearchRepo {
 
       return right(books);
     } catch (e) {
-      return left(ServerFailure());
+      return left(Failure());
     }
   }
 }
