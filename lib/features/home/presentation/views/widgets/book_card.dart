@@ -21,6 +21,9 @@ class BookCard extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: book.volumeInfo?.imageLinks?.thumbnail.toString() ?? '',
           fit: BoxFit.fill,
+          errorListener: (value) {
+            return;
+          },
           errorWidget: (context, url, error) => const Icon(Icons.error),
           placeholder: (context, url) => ShimmerCard(
             width: 150,
