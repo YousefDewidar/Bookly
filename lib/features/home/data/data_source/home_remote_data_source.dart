@@ -1,4 +1,6 @@
 import 'package:bookly/core/utils/api_service.dart';
+import 'package:bookly/core/utils/constant.dart';
+import 'package:bookly/core/utils/functions/caching_books.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/domain/entities/book_entity.dart';
 
@@ -16,14 +18,18 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks() async {
     var data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
-    return getBooksList(data);
+    List<BookEntity> bookList = getBooksList(data);
+    cacheBooks(bookList, kFeatureBox);
+    return bookList;
   }
 
   @override
   Future<List<BookEntity>> fetchNewestBooks() async {
     var data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=computers&Sorting=newest');
-    return getBooksList(data);
+    List<BookEntity> bookList = getBooksList(data);
+    cacheBooks(bookList, kNewestBox);
+    return bookList;
   }
 
   @override
