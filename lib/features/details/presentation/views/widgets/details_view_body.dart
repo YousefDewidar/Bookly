@@ -25,7 +25,7 @@ class DetailsViewBody extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 60.0),
             child:
-                Hero(tag: myBook.id, child: BookCard(book: myBook, width: 0)),
+                Hero(tag: myBook.bookId, child: BookCard(book: myBook, width: 0)),
           ),
           const Space(20),
           Text(

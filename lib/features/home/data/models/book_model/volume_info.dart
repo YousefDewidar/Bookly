@@ -1,11 +1,9 @@
-import 'package:equatable/equatable.dart';
-
 import 'image_links.dart';
 import 'industry_identifier.dart';
 import 'panelization_summary.dart';
 import 'reading_modes.dart';
 
-class VolumeInfo extends Equatable {
+class VolumeInfo {
   final String? title;
   final List<dynamic>? authors;
   final String? publishedDate;
@@ -24,8 +22,8 @@ class VolumeInfo extends Equatable {
   final String? previewLink;
   final String? infoLink;
   final String? canonicalVolumeLink;
-  final int? averageRating;
-  final int? ratingsCount;
+  final num? averageRating;
+  final num? ratingsCount;
 
   const VolumeInfo(
       {this.title,
@@ -78,8 +76,8 @@ class VolumeInfo extends Equatable {
         previewLink: json['previewLink'] as String?,
         infoLink: json['infoLink'] as String?,
         canonicalVolumeLink: json['canonicalVolumeLink'] as String?,
-        averageRating: json['averageRating'] as int?,
-        ratingsCount: json['ratingsCount'] as int?,
+        averageRating: json['averageRating'] as num?,
+        ratingsCount: json['ratingsCount'] as num?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -105,30 +103,4 @@ class VolumeInfo extends Equatable {
         'averageRating': averageRating,
         'ratingsCount': ratingsCount,
       };
-
-  @override
-  List<Object?> get props {
-    return [
-      title,
-      authors,
-      publishedDate,
-      description,
-      industryIdentifiers,
-      readingModes,
-      pageCount,
-      printType,
-      categories,
-      maturityRating,
-      allowAnonLogging,
-      contentVersion,
-      panelizationSummary,
-      imageLinks,
-      language,
-      previewLink,
-      infoLink,
-      canonicalVolumeLink,
-      averageRating,
-      ratingsCount
-    ];
-  }
 }

@@ -50,7 +50,7 @@ class _AlsoLikeListViewState extends State<AlsoLikeListView> {
                           ));
                     },
                     child: Hero(
-                      tag: state.books[index].id,
+                      tag: state.books[index].bookId,
                       child: BookCard(
                         width: 120,
                         book: state.books[index],

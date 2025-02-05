@@ -1,6 +1,5 @@
-import 'package:equatable/equatable.dart';
 
-class SearchInfo extends Equatable {
+class SearchInfo {
   final String? textSnippet;
 
   const SearchInfo({this.textSnippet});
@@ -13,6 +12,4 @@ class SearchInfo extends Equatable {
         'textSnippet': textSnippet,
       };
 
-  @override
-  List<Object?> get props => [textSnippet];
 }

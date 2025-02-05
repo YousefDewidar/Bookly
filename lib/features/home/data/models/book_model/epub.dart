@@ -1,6 +1,5 @@
-import 'package:equatable/equatable.dart';
 
-class Epub extends Equatable {
+class Epub{
   final bool? isAvailable;
 
   const Epub({this.isAvailable});
@@ -13,6 +12,5 @@ class Epub extends Equatable {
         'isAvailable': isAvailable,
       };
 
-  @override
-  List<Object?> get props => [isAvailable];
+
 }

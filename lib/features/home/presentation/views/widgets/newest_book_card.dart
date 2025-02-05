@@ -29,7 +29,7 @@ class NewestBookCard extends StatelessWidget {
           height: 130,
           child: Row(
             children: [
-              Hero(tag: book.id, child: BookCard(book: book, width: 90)),
+              Hero(tag: book.bookId, child: BookCard(book: book, width: 90)),
               const Space(20, dir: 'h'),
               Expanded(
                 child: Padding(
