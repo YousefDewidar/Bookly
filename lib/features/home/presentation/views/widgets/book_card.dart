@@ -1,12 +1,12 @@
 import 'package:bookly/core/utils/shimmer/shimmer_card.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BookCard extends StatelessWidget {
   const BookCard(
       {super.key, required this.book, required this.width, this.marginR = 0.0});
-  final BookModel book;
+  final BookEntity book;
   final double width;
   final double marginR;
 
@@ -19,7 +19,7 @@ class BookCard extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: CachedNetworkImage(
-          imageUrl: book.volumeInfo?.imageLinks?.thumbnail.toString() ?? '',
+          imageUrl: book.imageUrl,
           fit: BoxFit.fill,
           errorListener: (value) {
             return;

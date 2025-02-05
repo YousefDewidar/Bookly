@@ -1,4 +1,4 @@
-import 'package:bookly/constant.dart';
+import 'package:bookly/core/utils/constant.dart';
 import 'package:bookly/core/utils/assets_data.dart';
 import 'package:bookly/core/utils/space.dart';
 import 'package:bookly/features/home/presentation/views/home_view.dart';

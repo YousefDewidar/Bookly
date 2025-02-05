@@ -1,6 +1,6 @@
 import 'package:bookly/core/utils/space.dart';
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 class RatingWidget extends StatelessWidget {
@@ -8,7 +8,7 @@ class RatingWidget extends StatelessWidget {
     super.key,
     required this.book,
   });
-  final BookModel book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +20,10 @@ class RatingWidget extends StatelessWidget {
           color: Colors.amber,
         ),
         const Space(dir: 'h', 5),
-        Text((book.volumeInfo!.averageRating ?? 0).toString(),
+        Text((book.rating).toString(),
             style: Styles.style22.copyWith(fontSize: 19)),
         const Space(dir: 'h', 6),
-        Text('(${book.volumeInfo!.ratingsCount ?? 0})', style: Styles.greyStyle),
+        Text('(${book.rating})', style: Styles.greyStyle),
       ],
     );
   }

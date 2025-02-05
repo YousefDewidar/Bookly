@@ -4,14 +4,14 @@ import 'package:bookly/features/details/presentation/views/widgets/also_like_lis
 import 'package:bookly/features/details/presentation/views/widgets/details_app_bar.dart';
 import 'package:bookly/features/details/presentation/views/widgets/preview_or_download_buttons.dart';
 import 'package:bookly/features/details/presentation/views/widgets/rating_widget.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailsViewBody extends StatelessWidget {
   const DetailsViewBody({super.key, required this.myBook});
-  final BookModel myBook;
+  final BookEntity myBook;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +25,11 @@ class DetailsViewBody extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 60.0),
             child:
-                Hero(tag: myBook.id!, child: BookCard(book: myBook, width: 0)),
+                Hero(tag: myBook.id, child: BookCard(book: myBook, width: 0)),
           ),
           const Space(20),
           Text(
-            myBook.volumeInfo!.title!,
+            myBook.title,
             textAlign: TextAlign.center,
             style: GoogleFonts.afacad(
                 fontSize: 30, height: 1, fontWeight: FontWeight.w500),
@@ -37,7 +37,7 @@ class DetailsViewBody extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           const Space(3),
-          Text(myBook.volumeInfo!.authors![0],
+          Text(myBook.author,
               textAlign: TextAlign.center, style: Styles.greyStyle),
           const Space(3),
           RatingWidget(book: myBook),

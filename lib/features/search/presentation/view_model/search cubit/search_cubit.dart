@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly/core/errors/failure.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:bookly/features/search/data/repo/search_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -23,7 +24,7 @@ class SearchCubit extends Cubit<SearchState> {
         emit(const SearchFailure('Not found'));
       },
       (r) {
-        emit(SearchSuccess(r));
+        emit(const SearchSuccess([]));
       },
     );
   }

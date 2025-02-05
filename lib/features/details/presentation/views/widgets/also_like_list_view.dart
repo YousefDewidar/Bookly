@@ -1,7 +1,7 @@
 import 'package:bookly/core/utils/shimmer/shimmer.dart';
 import 'package:bookly/features/details/presentation/view_model/similar%20books%20cubit/similar_books_cubit.dart';
 import 'package:bookly/features/details/presentation/views/details_view.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +11,7 @@ class AlsoLikeListView extends StatefulWidget {
     super.key,
     required this.myBook,
   });
-  final BookModel myBook;
+  final BookEntity myBook;
 
   @override
   State<AlsoLikeListView> createState() => _AlsoLikeListViewState();
@@ -23,7 +23,7 @@ class _AlsoLikeListViewState extends State<AlsoLikeListView> {
     super.initState();
 
     BlocProvider.of<SimilarBooksCubit>(context)
-        .fetchSimilarBooks(cat: widget.myBook.volumeInfo!.categories![0]);
+        .fetchSimilarBooks(cat: widget.myBook.category);
   }
 
   @override
@@ -50,7 +50,7 @@ class _AlsoLikeListViewState extends State<AlsoLikeListView> {
                           ));
                     },
                     child: Hero(
-                      tag: state.books[index].id!,
+                      tag: state.books[index].id,
                       child: BookCard(
                         width: 120,
                         book: state.books[index],

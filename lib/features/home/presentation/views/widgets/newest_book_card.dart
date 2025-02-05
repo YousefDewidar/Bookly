@@ -2,7 +2,7 @@ import 'package:bookly/core/utils/space.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/details/presentation/views/details_view.dart';
 import 'package:bookly/features/details/presentation/views/widgets/rating_widget.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
@@ -11,7 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class NewestBookCard extends StatelessWidget {
   const NewestBookCard({super.key, required this.book});
-  final BookModel book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class NewestBookCard extends StatelessWidget {
           height: 130,
           child: Row(
             children: [
-              Hero(tag: book.id!, child: BookCard(book: book, width: 90)),
+              Hero(tag: book.id, child: BookCard(book: book, width: 90)),
               const Space(20, dir: 'h'),
               Expanded(
                 child: Padding(
@@ -39,7 +39,7 @@ class NewestBookCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
-                        book.volumeInfo!.title!,
+                        book.title,
                         style: GoogleFonts.afacad(
                             fontSize: 22,
                             height: 1.2,
@@ -48,7 +48,7 @@ class NewestBookCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        book.volumeInfo!.authors?[0] ?? '',
+                        book.author,
                         style: Styles.greyStyle,
                         maxLines: 1,
                       ),

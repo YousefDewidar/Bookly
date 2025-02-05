@@ -1,7 +1,5 @@
-import 'package:bookly/core/utils/functions/download_book.dart';
-import 'package:bookly/core/utils/functions/lanch_url_fun.dart';
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 class PreviewOrDownloadButtons extends StatelessWidget {
@@ -9,27 +7,27 @@ class PreviewOrDownloadButtons extends StatelessWidget {
     super.key,
     required this.book,
   });
-  final BookModel book;
+  final BookEntity book;
 
 
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        InkWell(
-          onTap: () {
-            downloadBook(book: book, context: context);
-          },
-          child: const DownloadWidget(),
-        ),
-        GestureDetector(
-          onTap: () {
-            lanchUrlFun(book: book, context: context);
-          },
-          child: const PreviewWidget(),
-        ),
+        // InkWell(
+        //   onTap: () {
+        //     downloadBook(book: book, context: context);
+        //   },
+        //   child: const DownloadWidget(),
+        // ),
+        // GestureDetector(
+        //   onTap: () {
+        //     lanchUrlFun(book: book, context: context);
+        //   },
+        //   child: const PreviewWidget(),
+        // ),
       ],
     );
   }
