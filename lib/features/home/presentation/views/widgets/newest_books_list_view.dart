@@ -1,5 +1,5 @@
 import 'package:bookly/core/utils/shimmer/shimmer.dart';
-import 'package:bookly/features/home/presentation/view%20model/newest%20books%20cubit/newest_books_cubit.dart';
+import 'package:bookly/features/home/presentation/manager/newest%20books%20cubit/newest_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/newest_book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,6 +1,6 @@
 import 'package:bookly/core/utils/shimmer/shimmer.dart';
 import 'package:bookly/features/details/presentation/views/details_view.dart';
-import 'package:bookly/features/home/presentation/view%20model/featured%20book%20cubit/featured_books_cubit.dart';
+import 'package:bookly/features/home/presentation/manager/featured%20book%20cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
