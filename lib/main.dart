@@ -1,13 +1,12 @@
-import 'package:bookly/core/utils/api_service.dart';
 import 'package:bookly/core/utils/constant.dart';
-import 'package:bookly/features/home/data/data_source/home_local_data_source.dart';
-import 'package:bookly/features/home/data/data_source/home_remote_data_source.dart';
+import 'package:bookly/core/utils/functions/di.dart';
 import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:bookly/features/home/data/repos/home_repo_implement.dart';
+import 'package:bookly/features/home/domain/use_cases/featch_featured_books_use_case.dart';
+import 'package:bookly/features/home/domain/use_cases/featch_newest_books_use_case.dart';
 import 'package:bookly/features/home/presentation/manager/featured%20book%20cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/manager/newest%20books%20cubit/newest_books_cubit.dart';
 import 'package:bookly/features/splash/presentation/views/splash_view.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +15,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   await Hive.initFlutter();
+  setupServiceLocator();
   Hive.registerAdapter(BookEntityAdapter());
   await Future.wait([
     Hive.openBox<BookEntity>(kFeatureBox),
@@ -32,20 +32,15 @@ class Bookly extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(HomeRepoImplement(
-            localDataSource: HomeLocalDataSourceImpl(),
-            remoteDataSource:
-                HomeRemoteDataSourceImpl(apiService: ApiService(Dio())),
-          ))
-            ..fetchFeaturedBooks(),
+          create: (context) => FeaturedBooksCubit(
+            FeatchFeaturedBooksUseCase(
+                homeRepo: getIt.get<HomeRepoImplement>()),
+          )..fetchFeaturedBooks(),
         ),
         BlocProvider(
-          create: (context) => NewestBooksCubit(HomeRepoImplement(
-            localDataSource: HomeLocalDataSourceImpl(),
-            remoteDataSource:
-                HomeRemoteDataSourceImpl(apiService: ApiService(Dio())),
-          ))
-            ..fetchNewestBooks(),
+          create: (context) => NewestBooksCubit(
+            FeatchNewestBooksUseCase(homeRepo: getIt.get<HomeRepoImplement>()),
+          )..fetchNewestBooks(),
         ),
       ],
       child: GetMaterialApp(

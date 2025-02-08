@@ -1,17 +1,17 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly/features/home/domain/entities/book_entity.dart';
-import 'package:bookly/features/home/domain/repos/home_repo.dart';
+import 'package:bookly/features/home/domain/use_cases/featch_featured_books_use_case.dart';
 
 part 'featured_books_state.dart';
 
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
-  FeaturedBooksCubit(this.homeRepo) : super(FeaturedBooksInitial());
-
-  final HomeRepo homeRepo;
+  FeaturedBooksCubit(this.featchFeaturedBooksUseCase)
+      : super(FeaturedBooksInitial());
+  final FeatchFeaturedBooksUseCase featchFeaturedBooksUseCase;
 
   Future<void> fetchFeaturedBooks() async {
     emit(FeaturedBooksLoading());
-    var result = await homeRepo.fetchFeaturedBooks();
+    var result = await featchFeaturedBooksUseCase.call();
 
     result.fold(
       (failuer) {

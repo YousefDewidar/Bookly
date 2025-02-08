@@ -1,18 +1,19 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly/features/home/domain/entities/book_entity.dart';
-import 'package:bookly/features/home/domain/repos/home_repo.dart';
+import 'package:bookly/features/home/domain/use_cases/featch_newest_books_use_case.dart';
 
 part 'newest_books_state.dart';
 
 class NewestBooksCubit extends Cubit<NewestBooksState> {
-  NewestBooksCubit(this.homeRepo) : super(NewestBooksInitial());
+  NewestBooksCubit(this.featchNewestBooksUseCase) : super(NewestBooksInitial());
 
-  final HomeRepo homeRepo;
+  final FeatchNewestBooksUseCase featchNewestBooksUseCase;
 
   Future<void> fetchNewestBooks() async {
     emit(NewestBooksLoading());
-    var result = await homeRepo.fetchNewestBooks();
 
+    var result = await featchNewestBooksUseCase.call();
+    
     result.fold(
       (failuer) {
         emit(const NewestBooksFailure('No internet connection'));
